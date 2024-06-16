@@ -1,0 +1,1 @@
+select group_code,group_name from mst_group;

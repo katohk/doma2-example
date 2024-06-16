@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="dialect002" class="org.seasar.doma.jdbc.dialect.PostgresDialect" />
+    <bean id="dataSource002" class="com.zaxxer.hikari.HikariDataSource"
+        destroy-method="close">
+        <constructor-arg ref="hikari002" />
+    </bean>
+	<bean id="hikari002" class="com.zaxxer.hikari.HikariConfig">
+		<property name="jdbcUrl" value="jdbc:postgresql://dbserver002:5432/example002" />
+		<property name="driverClassName" value="org.postgresql.Driver" />
+        <property name="minimumIdle" value="1" />
+        <property name="maximumPoolSize" value="3" />
+        <property name="username" value="testuser" />
+        <property name="password" value="testuser" />
+    </bean>
+
+</beans>

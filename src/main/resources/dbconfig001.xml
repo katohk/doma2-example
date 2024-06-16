@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="dialect001" class="org.seasar.doma.jdbc.dialect.MysqlDialect" />
+
+    <bean id="dataSource001" class="com.zaxxer.hikari.HikariDataSource"
+        destroy-method="close">
+        <constructor-arg ref="hikari001" />
+    </bean>
+	<bean id="hikari001" class="com.zaxxer.hikari.HikariConfig">
+		<property name="jdbcUrl" value="jdbc:mysql://dbserver001:3306/example001?useSSL=false" />
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="minimumIdle" value="1" />
+        <property name="maximumPoolSize" value="3" />
+        <property name="username" value="testuser" />
+        <property name="password" value="testuser" />
+    </bean>
+    
+
+</beans>

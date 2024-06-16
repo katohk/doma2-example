@@ -1,0 +1,1 @@
+select usr_id, usr_name from usermst;
